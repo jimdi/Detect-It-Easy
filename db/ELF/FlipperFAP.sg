@@ -1,0 +1,34 @@
+// Detect It Easy: detection rule file
+// Author: Jim_Di
+
+meta("format", "Flipper Zero FAP");
+
+function detect() {
+    var nSection = ELF.getSectionNumber(".fapmeta");
+    if (nSection != -1) {
+        var nOffset = ELF.getSectionFileOffset(nSection);
+        var nSize = ELF.getSectionFileSize(nSection);
+        
+        if (nSize >= 52) {
+            var nMagic = File.read_uint32(nOffset);
+            if (nMagic === 0x52474448) {
+                var nManifestVersion = File.read_uint32(nOffset + 4);
+                if (nManifestVersion === 1) {
+                    var nApiMinor = File.read_uint16(nOffset + 8);
+                    var nApiMajor = File.read_uint16(nOffset + 10);
+                    var nHwTarget = File.read_uint16(nOffset + 12);
+                    var nStackSize = File.read_uint16(nOffset + 14);
+                    var nAppVersion = File.read_uint32(nOffset + 16);
+                    var sName = File.read_ansiString(nOffset + 20, 32);
+
+                    bDetected = true;
+                    sVersion = "API: " + nApiMajor + "." + nApiMinor;
+                    sOptions = "HW:" + nHwTarget + " | Stack:" + nStackSize + "B | AppV:" + nAppVersion + " | Name:'" + sName + "'";
+                    sType = "Application";
+                }
+            }
+        }
+    }
+
+    return result();
+}
