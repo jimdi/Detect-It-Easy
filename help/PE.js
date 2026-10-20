@@ -81,6 +81,19 @@ PE.findDword = function(nOffset, nSize, nValue) {}
      */
 PE.findSignature = function(nOffset, nSize, sSignature) {}
     /**
+     * @see Binary.findSignatures
+     */
+PE.findSignatures = function(nOffset, nSize, signatures) {}
+    /**
+     * @see Binary.findAnyBytes
+     */
+PE.findAnyBytes = function(nOffset, nSize, patterns) {}
+    /**
+     * @see Binary.findByteRelationCandidates
+     */
+PE.findByteRelationCandidates = function(nOffset, nSize, groups, tailBytes) {}
+
+    /**
      * @see Binary.findString
      * @example
      * nOffset=PE.findString(0,1024,"UPX!");
@@ -509,6 +522,19 @@ PE.isLibraryFunctionPresent = function(sLibraryName, sFunctionName) {}
      */
 PE.isLibraryPresent = function(sLibraryName) {}
     /**
+     * Check whether any signature in the array exists in a section.
+     * @param {UInt} nSection - Zero-based section number; uses isSignatureInSectionPresent bounds.
+     * @param {String[]} signatures - Nonempty signature strings; every entry must be valid.
+     * @returns {Bool} True if any pattern matches; false for no match or invalid input.
+     * @see Binary.isAnySignatureInSectionPresent
+     * @example
+     * if (PE.isNet() && PE.getNumberOfSections() > 0 &&
+     *     PE.isAnySignatureInSectionPresent(0, ["'m_isReadOnly'", "'m_useUserOverride'"])) {
+     *     // Verify further evidence before identifying a protector.
+     * }
+     */
+PE.isAnySignatureInSectionPresent = function(nSection, signatures) {}
+    /**
      * Check if a signature (see {@link Binary.compare}) exists in a section.
      * @param {Int} nSection - Section number (from 0).
      * @param {String} sSignature - Signature.
@@ -584,6 +610,24 @@ PE.RVAToOffset = function(nRVA) {}
      * @returns {Int64} If an error occurs, -1 will be returned.
      */
 PE.VAToOffset = function(nVA) {}
+    /**
+     * Validate a complete virtual range in one PE section, preserving section order.
+     * @param {Number} nVA - Nonnegative safe integer virtual address at or above the image base.
+     * @param {Number} nSize - Positive safe integer byte count.
+     * @param {Number} requiredFlags - Unsigned 32-bit integer; the section must contain every requested bit.
+     * @param {Boolean} fileBacked - If false, use max(VirtualSize, SizeOfRawData). If true, require
+     * the complete range inside the raw section and file, and verify both endpoints with VAToOffset.
+     * The inclusive end VA must be a safe integer. The first containing section with the flags wins;
+     * a failed file or endpoint check returns null without trying later overlapping sections.
+     * @returns {{sectionIndex: Number, fileOffset: Number}|null} Zero-based section index;
+     * fileOffset is present only when fileBacked is true. Invalid or unmapped ranges return null.
+     */
+PE.mapVirtualRange = function(nVA, nSize, requiredFlags, fileBacked) {}
+    /**
+     * @see Binary.getDisasmInfo
+     */
+PE.getDisasmInfo = function(nVA) {}
+
     /**
      * @see Binary.getString
      */

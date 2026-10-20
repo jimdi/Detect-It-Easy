@@ -1,8 +1,8 @@
 // Detect It Easy: detection rule file
 
 // Author: DosX
-// E-Mail: collab@kay-software.ru
 // GitHub: https://github.com/DosX-dev
+// Website: https://dosx.su
 // Telegram: @DosX_dev
 // ---
 // Samples by: BJNFNE <bjnfne@web.de>
@@ -11,7 +11,7 @@
 meta("format", "TOT");
 
 function detect() {
-    if (Binary.compare("?? ** 00'") && Binary.isSignaturePresent(0, 32, "00 00 '(c)'")) {
+    if (Binary.compare("?? ** 00") && Binary.isSignaturePresent(0, 32, "00 00 '(c)'")) {
         bDetected = true;
 
         var versionInfo = Binary.findSignature(0, 64, "'Version ' %% 2E %%");

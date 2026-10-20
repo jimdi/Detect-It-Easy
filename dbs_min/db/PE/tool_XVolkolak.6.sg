@@ -1,2 +1,2 @@
-function detect(){if(!PE.isNet()){for(var e=0,t=0,r=!1,c=0;c<PE.getNumberOfSections();c++){var o=PE.section[c]
-".xvlk"===o.Name?(e++,3758096416&o.Characteristics&&(r=!0)):/.(rsrc|reloc)/i.test(o.Name)&&t++}return r&&2<=e&&PE.getNumberOfSections()===e+t&&(sOptions="unpacked",bDetected=1),result()}}meta("tool","XVolkolak")
+function detect(){if(!X.isNet()){for(var e=0,t=0,s=!1,a=0;a<X.getNumberOfSections();a++){var o=X.section[a]
+".xvlk"===o.Name||o.Name.match(/^\.sec[0-9][0-9]$/)?(e++,o.hasFlags(3758096416)&&(s=!0)):/.(rsrc|reloc)/i.test(o.Name)&&t++}return s&&2<=e&&X.getNumberOfSections()===e+t&&(sOptions="unpacked",bDetected=1),result()}}meta("tool","XVolkolak")

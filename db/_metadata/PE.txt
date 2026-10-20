@@ -9,7 +9,6 @@ _debug_data.5.sg#debug-data
 _linkers.6.sg#build
 archive_7z.6.sg#compression
 arj.6.sg#compression
-compiler_BatchToApp.6.sg#build
 compiler_BeRo_Tiny_Pascal.6.sg#build
 compiler_Borland_C++.6.sg#build
 compiler_Cygwin32.4.sg#build
@@ -31,7 +30,6 @@ compiler_Intel_C.6.sg#build
 compiler_Kotlin.4.sg#build
 compiler_LCC-Win32.4.sg#build
 compiler_LDC.6.sg#build
-compiler_LLVM.6.sg#build
 compiler_Lahey_Fortran_90.4.sg#build
 compiler_Microsoft_JScript.6.sg#build
 compiler_Microsoft_SmallBasic.6.sg#build
@@ -352,8 +350,9 @@ library_Newtonsoft.Json.4.sg#build
 library_Ninject.4.sg#build
 library_NodaTime.4.sg#build
 library_Nvidia_DLSS.4.sg#build
+library_Nvidia_DLSS_NR.4.sg#build
+library_Nvidia_DLSS_NTC.4.sg#build
 library_Nvidia_GeForce_NOW_SDK.4.sg#build
-library_Nvidia_NTC.4.sg#build
 library_Nvidia_PhysX.4.sg#build
 library_Nvidia_Streamline.4.sg#build
 library_ObjGrid.4.sg#build
@@ -409,6 +408,7 @@ library_TNTSI.4.sg#build
 library_Tabula.4.sg#build
 library_Telegram.Bot.4.sg#build
 library_TimeZoneConverter.4.sg#build
+library_TinyXml.4.sg#build
 library_Twilio.4.sg#build
 library_Twilio_SendGrid.4.sg#build
 library_UAParser.4.sg#build
@@ -559,12 +559,6 @@ packer_py2exe.2.sg#compression
 packer_scr2exe.2.sg#compression
 packer_xor_packer.2.sg#compression
 packer_yzPack.2.sg#compression
-patcher_CodeFusion_Wizard.1.sg#patcher
-patcher_PMaker.1.sg#patcher
-patcher_RPP.1.sg#patcher
-patcher_RTPatch.1.sg#patcher
-patcher_dUP.1.sg#patcher
-patcher_simple_patch.1.sg#patcher
 player_players.1.sg#player
 protection_BattlEye.5.sg#protection
 protection_DS.Eutron_SmartKey_dongle.5.sg#protection
@@ -605,6 +599,7 @@ protector_Armadillo.2.sg#protection
 protector_Arxan.2.sg#protection
 protector_BJFnt.2.sg#protection
 protector_Babel_.NET.2.sg#protection
+protector_BatchToApp.2.sg#protection
 protector_Berio.2.sg#protection
 protector_ByfronTech.2.sg#protection
 protector_ByteGuard.2.sg#protection
@@ -780,6 +775,7 @@ protector_hmimys_Protect.2.sg#protection
 protector_iPB_Protect.2.sg#protection
 protector_kkryptor.2.sg#protection
 protector_tElock.2.sg#protection
+protector_notcpuid.2.sg#protection
 rar.6.sg#compression
 sfx_12Ghosts_Zip2.1.sg#installer
 sfx_7z.1.sg#installer
@@ -821,9 +817,13 @@ sfx_wrappe.1.sg#installer
 sign_tool_Windows_Authenticode.7.sg#sign-tool
 tool_AHTeam_UPX_Mutanter.2.sg#tool
 tool_Astral-PE.6.sg#tool
+tool_CodeFusion_Wizard.6.sg#tool
 tool_ImpRec.6.sg#tool
 tool_LordPE.2.sg#tool
 tool_Microsoft_VisualStudio_NET.6.sg#tool
+tool_PMaker.6.sg#tool
+tool_RPP.6.sg#tool
+tool_RTPatch.6.sg#tool
 tool_Scylla.6.sg#tool
 tool_UPX-Patcher.6.sg#tool
 tool_UPXFreak.2.sg#tool
@@ -834,5 +834,7 @@ tool_UPX_scrambler.2.sg#tool
 tool_UnoPiX.2.sg#tool
 tool_XVolkolak.6.sg#tool
 tool_de4dot.6.sg#tool
+tool_dUP.6.sg#tool
 tool_inject2pe.6.sg#tool
+tool_simple_patch.6.sg#tool
 zip.6.sg#compression
